@@ -6,5 +6,6 @@ export function dataFactory(rawData) {
     humidity: rawData.main.humidity,
     temp: rawData.main.temp,
     weather: rawData.weather[0].description,
+    main: rawData.weather[0].main,
   };
 }

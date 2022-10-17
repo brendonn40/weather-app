@@ -7,6 +7,7 @@ export async function grabWeatherData(nameOfCity) {
   );
   const data = await response.json();
   if (data.cod === 200) {
+    console.log(data);
     return dataFactory(data);
   } else {
     console.log("something went wrong, try typing the name of the city again.");
