@@ -1,11 +1,17 @@
-export function dataFactory(rawData) {
+export function forecastFactory(daily) {
   return {
-    name: rawData.name,
-    country: rawData.sys.country,
-    feels_like: rawData.main.feels_like,
-    humidity: rawData.main.humidity,
-    temp: rawData.main.temp,
-    weather: rawData.weather[0].description,
-    main: rawData.weather[0].main,
+    date: new Date(daily.dt * 1000),
+    tempMax: daily.temp.max,
+    tempMin: daily.temp.min,
+    weather: daily.weather[0],
+  };
+}
+
+export function currentFactory(data) {
+  return {
+    date: new Date(data.current.dt * 1000),
+    temp: data.current.temp,
+    humidity: data.current.humidity,
+    weather: data.current.weather[0],
   };
 }
