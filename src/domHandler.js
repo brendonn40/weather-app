@@ -22,9 +22,13 @@ export function createForecast(data) {
     let day = document.createElement("div");
     let image = document.createElement("img");
     image.src = `http://openweathermap.org/img/wn/${data[i].weather.icon}.png`;
-    let date = document.createTextNode(data[i].date.toDateString());
-    let max = document.createTextNode(data[i].tempMax + "|");
-    let min = document.createTextNode(data[i].tempMin);
+    const options = { weekday: "long" };
+    let dayOfWeek = data[i].date;
+    let date = document.createTextNode(
+      new Intl.DateTimeFormat("en-US", options).format(dayOfWeek)
+    );
+    let max = document.createTextNode(Math.round(data[i].tempMax) + "|");
+    let min = document.createTextNode(Math.round(data[i].tempMin));
     day.append(
       date,
       document.createElement("br"),
