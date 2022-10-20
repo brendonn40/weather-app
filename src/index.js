@@ -1,7 +1,6 @@
 import "./style.css";
 import { grabWeatherData, getCoordinates } from "./apiStuff.js";
 import search from "./images/search.svg";
-import background from "./images/background.jpg";
 import { createForecast, displayData } from "./domHandler.js";
 const searchImg = document.getElementById("search");
 searchImg.src = search;

@@ -31,10 +31,37 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
  
 }
 .wrapper{
   display: flex;
   justify-content: space-around;
   width: inherit;
+}
+body{
+  background-image: url(https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=944&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+  gap: 15px;
+}
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 20px;
+}
+#date{
+  font-weight: 700;
+  font-style: italic;
+}
+#weather{
+  font-size: 2rem;
 }

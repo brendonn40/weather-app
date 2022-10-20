@@ -13,5 +13,6 @@ export function currentFactory(data) {
     temp: data.current.temp,
     humidity: data.current.humidity,
     weather: data.current.weather[0],
+    timezone: data.timezone,
   };
 }

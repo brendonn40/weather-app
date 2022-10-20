@@ -1,3 +1,5 @@
+import { toPascalCase } from "./pascal.js";
+import { changeTimeZone } from "./timezone.js";
 export function displayData(data, info) {
   createCurrent(data, info);
 }
@@ -10,9 +12,16 @@ function createCurrent(data, info) {
   const weather = document.getElementById("weather");
   let degrees = Math.round(data[0].temp);
   location.innerText = `${info.city}, ${info.country}`;
-  date.innerText = data[0].date.toDateString();
+  date.innerText = changeTimeZone(
+    data[0].date,
+    data[0].timezone
+  ).toLocaleString("en-US", {
+    dateStyle: "full",
+    timeStyle: "short",
+    hour12: false,
+  });
   temp.innerText = `${degrees}°C`;
-  weather.innerText = data[0].weather.description;
+  weather.innerText = toPascalCase(data[0].weather.description);
   image.src = `http://openweathermap.org/img/wn/${data[0].weather.icon}.png`;
 }
 export function createForecast(data) {
@@ -27,8 +36,8 @@ export function createForecast(data) {
     let date = document.createTextNode(
       new Intl.DateTimeFormat("en-US", options).format(dayOfWeek)
     );
-    let max = document.createTextNode(Math.round(data[i].tempMax) + "|");
-    let min = document.createTextNode(Math.round(data[i].tempMin));
+    let max = document.createTextNode(Math.round(data[i].tempMax) + "°|");
+    let min = document.createTextNode(Math.round(data[i].tempMin) + "°");
     day.append(
       date,
       document.createElement("br"),
