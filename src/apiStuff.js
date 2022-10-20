@@ -26,7 +26,7 @@ export async function getCoordinates(city) {
   try {
     let name = city.replace(" ", "+");
     const response = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=1&appid=7370ebfde9fc5aeac5372c17d6e4c27c`,
+      `https://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=1&appid=7370ebfde9fc5aeac5372c17d6e4c27c`,
       { mode: "cors" }
     );
     const coordinates = await response.json();
