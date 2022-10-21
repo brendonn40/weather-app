@@ -37,6 +37,7 @@ export async function getCoordinates(city) {
     array.push(coordinates[0].lat, coordinates[0].lon, info)
     return array
   } catch (err) {
+    alert('This city doesnt exist. Check your spelling.')
     console.log(err)
   }
 }
